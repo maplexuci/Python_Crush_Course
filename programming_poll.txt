@@ -1,0 +1,8 @@
+want to learn new skills. want to do works more efficiently.
+want to move to a new job.
+Want To Learn New Skills. Want To Work More Efficiently.
+Want To Transfer To A New Career.F
+Want To Earn More Salary.
+Want to show skill, try to make fun out of it.
+Want To Show Skill, Try To Make Fun Out Of It
+D:/anaconda3/python.exe c:/users/zhhxu/documents/python_study/python_crush_course/alien_invasion.py

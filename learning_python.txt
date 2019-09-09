@@ -1,0 +1,4 @@
+In Python you can work with different data structures
+In Python you can write functions
+In Python you can write classes
+In python you can model real world objects
