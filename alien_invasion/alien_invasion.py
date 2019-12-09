@@ -3,30 +3,41 @@ import sys
 import pygame
 
 from settings import Settings
+from ship import Ship
 
 
-def run_game():
+class AlienInvasion:
+    """Overall class to manage game assets and behavior."""
 
-    # Initialize game and create a screen object.
-    pygame.init()
-    ai_settings = Settings()
-    screen = pygame.display.set_mode(
-        (ai_settings.screen_width, ai_settings.screen_height))
-    pygame.display.set_caption("Alien Invasion")
+    def __init__(self):
+        """Initialize the game, and creat game resources."""
+        pygame.init()
+        self.settings = Settings()
 
-    # Start the main loop for the game.
-    while True:
+        self.screen = pygame.display.set_mode((
+            self.settings.screen_width, self.settings.screen_height))
+        pygame.display.set_caption("Alien Invasion")
 
-        # Watch for keyboard and mouse events.
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                sys.exit()  # Here is the place using the sys module
+        self.ship = Ship(self)
 
-        # Redraw the screen during each pass through the loop.
-        screen.fill(ai_settings.bg_color)
+    def run_game(self):
+        """Start the main loop for the game."""
+        while True:
+            # Watch for keyboard and mouse events.
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    sys.exit()  # Here is the place using the sys module
 
-        # Make the most recently drawn screen visible.
-        pygame.display.flip()
+            # Redraw the screen during each pass through this loop
+            self.screen.fill(self.settings.bg_color)  # This could be removed if a background image exists
+            self.screen.blit(self.settings.bg_image, self.settings.bg_rect)
+            self.ship.blitme()
+
+            # Make the most recently drawn screen visible.
+            pygame.display.flip()
 
 
-run_game()
+if __name__ == '__main__':
+    # Make a game instance, and run the game.
+    ai_game = AlienInvasion()
+    ai_game.run_game()
